@@ -1,26 +1,238 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Palette */
+  --color-navy: #17365d;
+  --color-blue: #6b9fc7;
+  --color-mint: #a8cdbd;
+  --color-peach: #f3c6ae;
+  --color-bg: #fafaf7;
+  --color-surface: #ffffff;
+  --color-text: #263445;
+  --color-muted: #6d7886;
+  --color-border: #e5e9ed;
+  --color-whatsapp: #1f9b55;
+
+  /* Semantic aliases */
+  --color-primary: var(--color-navy);
+  --color-primary-soft: #e8eef5;
+  --color-secondary: var(--color-blue);
+  --color-accent: var(--color-mint);
+  --color-warm: var(--color-peach);
+
+  /* Layout */
+  --header-h: 4.25rem;
+  --container: 68rem;
+  --measure: 38rem;
+  --section-y: clamp(3.75rem, 8vw, 6rem);
+  --gutter: clamp(1rem, 3vw, 1.5rem);
+
+  /* Shape */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --shadow-sm: 0 1px 2px rgb(23 54 93 / 0.05);
+  --shadow-md: 0 8px 24px -12px rgb(23 54 93 / 0.16);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: var(--color-bg);
+  --color-foreground: var(--color-text);
+  --color-primary: var(--color-primary);
+  --color-primary-soft: var(--color-primary-soft);
+  --color-secondary: var(--color-secondary);
+  --color-accent: var(--color-accent);
+  --color-warm: var(--color-warm);
+  --color-surface: var(--color-surface);
+  --color-muted: var(--color-muted);
+  --color-border: var(--color-border);
+  --color-navy: var(--color-navy);
+  --color-blue: var(--color-blue);
+  --color-mint: var(--color-mint);
+  --color-peach: var(--color-peach);
+  --font-sans: var(--font-source-sans);
+  --font-display: var(--font-fraunces);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-source-sans), system-ui, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  color: var(--color-navy);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-blue) 35%, white);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-navy);
+  outline-offset: 3px;
+}
+
+.section-pad {
+  padding-block: var(--section-y);
+}
+
+section[id] {
+  scroll-margin-top: calc(var(--header-h) + 0.75rem);
+}
+
+.container-page {
+  width: min(var(--container), calc(100% - (var(--gutter) * 2)));
+  margin-inline: auto;
+}
+
+.eyebrow {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-blue);
+}
+
+.lede {
+  max-width: var(--measure);
+  color: var(--color-muted);
+  font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+  line-height: 1.7;
+}
+
+.section-head {
+  max-width: 36rem;
+}
+
+.section-head.centered {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.section-head.centered .lede {
+  margin-inline: auto;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 2.875rem;
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1.25rem;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  line-height: 1.2;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.btn-primary {
+  background: var(--color-navy);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: color-mix(in srgb, var(--color-navy) 88%, black);
+}
+
+.btn-secondary {
+  background: var(--color-surface);
+  color: var(--color-navy);
+  border: 1px solid var(--color-border);
+}
+
+.btn-secondary:hover {
+  border-color: color-mix(in srgb, var(--color-navy) 28%, var(--color-border));
+  background: var(--color-primary-soft);
+}
+
+.btn-whatsapp {
+  background: var(--color-whatsapp);
+  color: white;
+}
+
+.btn-whatsapp:hover {
+  background: color-mix(in srgb, var(--color-whatsapp) 88%, black);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-navy);
+  border: 1px solid transparent;
+  padding-inline: 0.5rem;
+}
+
+.btn-ghost:hover {
+  background: var(--color-primary-soft);
+}
+
+.surface {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.divider {
+  height: 1px;
+  background: var(--color-border);
+  border: 0;
+}
+
+.portrait-stage {
+  background: linear-gradient(165deg, #dbe7f2 0%, #e8f1ec 55%, #f6ebe4 100%);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fade-up 500ms ease forwards;
+}
+
+.reveal-delay-1 {
+  animation-delay: 80ms;
+}
+
+@keyframes fade-up {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal,
+  .reveal-delay-1 {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .btn {
+    transition: none;
+  }
 }

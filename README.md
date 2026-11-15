@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Site — Dr. Houssem Barhoumi, Pédiatre
 
-## Getting Started
+Site vitrine français du cabinet de pédiatrie à Sousse (`houssembarhoumi.tn`).
 
-First, run the development server:
+## Stack
+
+- Next.js (App Router) + TypeScript
+- Tailwind CSS v4
+- Déploiement recommandé : Vercel (HTTPS)
+
+## Développement
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ouvrir [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+npm start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Données du cabinet
 
-## Learn More
+Source unique : [`src/lib/site.ts`](src/lib/site.ts)
 
-To learn more about Next.js, take a look at the following resources:
+| Champ | Valeur |
+|-------|--------|
+| Adresse | 3ème étage, Immeuble Shili (en face de Baghdad), 4023 Rue Ibn Charaf, Sousse |
+| Téléphone / WhatsApp | +216 92 432 703 |
+| Horaires | Lundi – Samedi, 08:00 – 18:00 |
+| Domaine | https://houssembarhoumi.tn |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## SEO & Google
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Après mise en ligne :
 
-## Deploy on Vercel
+1. Pointer le domaine `houssembarhoumi.tn` vers l’hébergeur (DNS A/CNAME).
+2. Soumettre `https://houssembarhoumi.tn/sitemap.xml` dans Google Search Console.
+3. Vérifier `https://houssembarhoumi.tn/robots.txt`.
+4. Créer / revendiquer la fiche Google Business Profile avec le **même** NAP que le site.
+5. Remplacer l’URL Maps générique par le lien exact du lieu une fois la fiche confirmée.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## À compléter avant / juste après la mise en production
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [ ] Confirmer la liste exacte des actes / services proposés
+- [ ] Ajouter parcours / diplômes vérifiés (actuellement omis)
+- [ ] Lien Google Business Profile vérifié
+- [ ] URL Maps / coordonnées GPS exactes
+- [ ] Numéro d’inscription à l’Ordre des médecins (mentions légales)
+- [ ] Coordonnées de l’hébergeur (mentions légales)
+- [ ] Portrait plus haute résolution (source actuelle ~504×495 px — limitée sur grands écrans)
+- [ ] Photo du cabinet (optionnel)
+
+## Structure
+
+- `/` — page unique (sections Accueil, Cabinet, Suivi, Conseils, Contact)
+- `/mentions-legales`
+- `/politique-de-confidentialite`
+
+Portrait : `public/images/dr-houssem-barhoumi.png`
