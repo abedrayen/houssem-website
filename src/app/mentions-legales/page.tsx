@@ -22,24 +22,9 @@ export default function MentionsLegalesPage() {
           <br />
           Téléphone : {site.phoneInternational}
         </p>
-        <p className="mt-3">
-          Identifiant professionnel / numéro d’inscription à l’Ordre des
-          médecins :{" "}
-          <span className="font-medium text-navy">
-            [À COMPLÉTER PAR LE CABINET]
-          </span>
-        </p>
+
       </section>
 
-      <section>
-        <h2 className="font-display text-2xl text-navy">Hébergement</h2>
-        <p className="mt-3">
-          Hébergeur :{" "}
-          <span className="font-medium text-navy">
-            [À COMPLÉTER — nom, adresse et contact de l’hébergeur]
-          </span>
-        </p>
-      </section>
 
       <section>
         <h2 className="font-display text-2xl text-navy">

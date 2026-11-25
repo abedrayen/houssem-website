@@ -6,7 +6,7 @@ Site vitrine français du cabinet de pédiatrie à Sousse (`houssembarhoumi.tn`)
 
 - Next.js (App Router) + TypeScript
 - Tailwind CSS v4
-- Déploiement recommandé : Vercel (HTTPS)
+- Déploiement : Netlify (export statique → dossier `out`)
 
 ## Développement
 
@@ -19,8 +19,18 @@ Ouvrir [http://localhost:3000](http://localhost:3000).
 
 ```bash
 npm run build
-npm start
 ```
+
+Le build génère le site statique dans `out/`.
+
+### Déploiement Netlify (CLI)
+
+```bash
+npm run build
+netlify deploy --prod --dir=out
+```
+
+Ou laissez Netlify builder via `netlify.toml` (`publish = "out"`).
 
 ## Données du cabinet
 
